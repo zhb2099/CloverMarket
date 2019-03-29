@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 一下用到实体类的别名方式typeAliases -->
+<configuration>
+	<properties resource="my.properties" />
+	<typeAliases>
+		<typeAlias alias="User" type="com.syc.user_entity.User" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- 设置(注册)接口的配置文件 -->
+	<!-- <mappers> <mapper resource="com/syc/user_dao/mapper/UserDaoMapper.xml" 
+		/> </mappers> -->
+	<!-- 表示多个此包下的xml文件 -->
+	<mappers>
+		<mapper resource="com/syc/user_dao/mapper/*.xml" />
+	</mappers>
+</configuration>

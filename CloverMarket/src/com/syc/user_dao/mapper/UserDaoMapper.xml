@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--命名空间指明了在哪个类下,此类名可以不用与本配置文件相同 -->
+<mapper namespace="com.yhc.user_dao.UserDao">
+	<!--设置一个结果集并取名为 userMap，方便查询调用;type要么是在总配置中的别名,那么就是实体类的全路径名com.syc -->
+	<resultMap id="userMap" type="User" />
+	<resultMap type="" id="">
+		<result column="sex" />
+		<result column="realname" />
+		<result column="address" />
+		<result column="question" />
+		<result column="answer" />
+		<result column="email" />
+		<result column="favorate" />
+		<result column="score" />
+		<result column="regdate" />
+		<result column="status" />
+	</resultMap>
+	<!--自定义的字段组,用于共享字段 -->
+	<sql id="share_list">
+		id,username,password
+	</sql>
+	<!-- 实现注册用户操作 -->
+	<select id="queryAll" resultMap="stuMap">
+		select
+		<include refid="Base_Column_List" />
+		from user_info
+	</select>
+	<insert id="ins">
+		insert into User_info
+		value(#{id},#{username},#{password},#{sex},#{realname},#{address},#{question},#{answer},#{email},#{favorate},#{score},#{regdate},#{status})
+	</insert>
+	
+	<insert id="reg">
+		insert into User_info(id,username,password) values(#{id},#{username},#{password})
+	</insert>
+	
+</mapper>

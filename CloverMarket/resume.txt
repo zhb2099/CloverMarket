@@ -1,0 +1,12 @@
+*******三叶草电商项目*********
+一.功能与说明
+二.开发环境预配置
+1.jdk1.8,win8,EclipseEE,Tomcat7.0
+2.git管理版本库
+三.技术参数
+1.spring/springMVC/mybatis
+2.Oracle
+3.三层架构与MVC程序设计模式
+4.b/s架构设计模式
+
+git工具远程地址：git@github.com:zhb2099/CloverMarket.git
